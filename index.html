@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadde Hot Dog & Burger</title>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animasyonları -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <!-- Stil Dosyamız -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Topbar -->
+    <div class="topbar">
+        <a class="top-item" href="tel:+905437485476">
+            <span class="icon phone"></span> Bizi arayın
+        </a>
+        <a class="top-item" href="https://wa.me/905437485476" target="_blank">
+            <span class="icon whatsapp"></span> WhatsApp • İletişim
+        </a>
+        <div class="top-hours">Pazartesi – Pazar : 12.00 – 00.00</div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="nav">
+        <div class="container nav-inner">
+            <a class="logo" href="#"><img src="https://i.hizliresim.com/j6708wn.png" alt="Cadde Hot Dog & Burger" /></a>
+            <nav class="menu">
+                <a href="#hero">Anasayfa</a>
+                <a href="#about">Hakkımızda</a>
+                <a href="#products">Ürünler</a>
+                <a href="#franchise">Bayilik</a>
+                <a href="#whyus">Neden Biz?</a>
+                <a href="#contact">İletişim</a>
+            </nav>
+            <button class="hamburger"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <!-- HERO (Videolu) -->
+    <section id="hero" class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="img/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+            <h1 class="hero-title">Sıcak. Hızlı. Efsane Lezzet.</h1>
+            <p class="hero-sub">Burger & Hot Dog’larımızla Çankırı’da lezzeti zirveye taşıyoruz.</p>
+
+            <div class="hero-cta">
+                <a class="btn primary" href="https://wa.me/905437485476" target="_blank">Sipariş Ver</a>
+                <a class="btn ghost" href="#products">Menüyü Gör</a>
+                <a class="btn outline" href="#franchise">Bayilik Bilgisi</a>
+            </div>
+        </div>
+
+        <a class="scroll-down" href="#owner"><span class="circle"><span class="arrow"></span></span></a>
+    </section>
+
+    <!-- OWNER -->
+    <section id="owner" class="owner section">
+        <div class="container grid-2">
+            <div class="owner-media">
+                <img src="https://i.hizliresim.com/qf3uiup.jpg" alt="Kurucu Fotoğrafı" class="owner-img" />
+            </div>
+            <div class="owner-media">
+                <img src="https://i.hizliresim.com/kk2vwi1.jpg" alt="Mutfaktan Kareler" class="owner-img" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about section">
+        <div class="container narrow">
+            <h2 class="sec-title">Hakkımızda</h2>
+            <p class="sec-text">
+                Sokak lezzetlerini modern ve hijyenik bir sunumla müşterilerimize ulaştırıyoruz.
+                Günlük kullanılan taze malzemelerle her gün aynı lezzeti koruyoruz.
+            </p>
+            <a class="btn more" href="hakkimizda.html">Daha Fazlası</a>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="products section">
+        <div class="container">
+            <div class="sec-head">
+                <h2 class="sec-title">Ürünlerimiz & Fiyatlarımız</h2>
+                <div class="slider-controls">
+                    <button class="slider-btn prev">‹</button>
+                    <button class="slider-btn next">›</button>
+                </div>
+            </div>
+
+            <div class="product-track" id="productTrack">
+                <!-- Örnek Ürün Kartları -->
+                <article class="card" data-aos="fade-right" data-aos-delay="50">
+                    <img src="https://i.hizliresim.com/f9rl3jl.jpg" alt="New York Hot Dog" />
+                    <div class="card-body">
+                        <h3>Classic Burger</h3>
+                        <p>Karamelize soğan, marul, domates, turşu.</p>
+                        <div class="price">₺250</div>
+                    </div>
+                </article>
+                <!-- Kart 2 -->
+                <article class="card" data-aos="fade-right" data-aos-delay="50">
+                    <img src="https://i.hizliresim.com/kxv8wfc.jpg" alt="New York Hot Dog" />
+                    <div class="card-body">
+                        <h3>Cheese Burger</h3>
+                        <p>Marul, domates, karamelize soğan, turşu, cheddar.</p>
+                        <div class="price">₺260</div>
+                    </div>
+                </article>
+                <!-- Kart 3 -->
+                <article class="card" data-aos="fade-right" data-aos-delay="100">
+                    <img src="https://i.hizliresim.com/p0hmois.jpg" alt="Smash Burger" />
+                    <div class="card-body">
+                        <h3>Mexican Burger</h3>
+                        <p>Marul, domates, turşu, jalapeno biber, sriracaha sos.</p>
+                        <div class="price">₺260</div>
+                    </div>
+                </article>
+                <!-- Kart 4 -->
+                <article class="card" data-aos="fade-right" data-aos-delay="150">
+                    <img src="https://i.hizliresim.com/ejq9wc9.jpg" alt="Chili Hot Dog" />
+                    <div class="card-body">
+                        <h3>Chicken Burger</h3>
+                        <p>Çıtır Tavuk, marul, domates, turşu, karamelize soğan.</p>
+                        <div class="price">₺190</div>
+                    </div>
+                </article>
+                <!-- Kart 5 -->
+                <article class="card" data-aos="fade-right" data-aos-delay="200">
+                    <img src="https://i.hizliresim.com/f9rl3jl.jpgg" alt="Patates & Sos" />
+                    <div class="card-body">
+                        <h3>BBQ Burger</h3>
+                        <p>Marul, domates, barbekü sos, karamelize soğan, cheddar.</p>
+                        <div class="price">₺260</div>
+                    </div>
+                </article>
+
+                <article class="card" data-aos="fade-right" data-aos-delay="200">
+                    <img src="https://i.hizliresim.com/ax0cc7e.jpg" alt="Patates & Sos" />
+                    <div class="card-body">
+                        <h3>Double Burger</h3>
+                        <p>Çift köfte, Marul, domates, turşu, karamelize soğan.</p>
+                        <div class="price">₺320</div>
+                    </div>
+                </article>
+
+                <article class="card" data-aos="fade-right" data-aos-delay="200">
+                    <img src="https://i.hizliresim.com/pi2bq5l.jpg" alt="Patates & Sos" />
+                    <div class="card-body">
+                        <h3>Chef Burger</h3>
+                        <p>Marul, domates, turşu, yumurta.</p>
+                        <div class="price">₺280</div>
+                    </div>
+                </article>
+
+                <article class="card" data-aos="fade-right" data-aos-delay="200">
+                    <img src="https://i.hizliresim.com/giqqet9.jpg" alt="Patates & Sos" />
+                    <div class="card-body">
+                        <h3>Classic Hot Dog</h3>
+                        <p>Sosis, ketçap, hardal, turşu.</p>
+                        <div class="price">₺150</div>
+                    </div>
+                </article>
+
+
+                <article class="card" data-aos="fade-right" data-aos-delay="200">
+                    <img src="https://i.hizliresim.com/giqqet9.jpg" alt="Patates & Sos" />
+                    <div class="card-body">
+                        <h3>Cadde Hot Dog</h3>
+                        <p>Sosis, soğan, turşu, soslar.</p>
+                        <div class="price">₺150</div>
+                    </div>
+                </article>
+
+                <article class="card" data-aos="fade-right" data-aos-delay="200">
+                    <img src="https://i.hizliresim.com/jl7lkr8.jpg" alt="Patates & Sos" />
+                    <div class="card-body">
+                        <h3>Cheese Hot Dog</h3>
+                        <p>Sosis, cheddar, turşu, soslar.</p>
+                        <div class="price">₺160</div>
+                    </div>
+                </article>
+
+                <article class="card" data-aos="fade-right" data-aos-delay="200">
+                    <img src="https://i.hizliresim.com/giqqet9.jpg" alt="Patates & Sos" />
+                    <div class="card-body">
+                        <h3>Nacho Hot Dog</h3>
+                        <p>Sosis, cips kırıkları, cheddar, soslar.</p>
+                        <div class="price">₺160</div>
+                    </div>
+                </article>
+
+                <article class="card" data-aos="fade-right" data-aos-delay="200">
+                    <img src="https://i.hizliresim.com/giqqet9.jpg" alt="Patates & Sos" />
+                    <div class="card-body">
+                        <h3>Breakfast Hot Dog</h3>
+                        <p>Sosis, yumurta, kaşar.</p>
+                        <div class="price">₺180</div>
+                    </div>
+                </article>
+
+                <article class="card" data-aos="fade-right" data-aos-delay="200">
+                    <img src="https://i.hizliresim.com/9pe0epd.jpg" alt="Patates & Sos" />
+                    <div class="card-body">
+                        <h3>BBQ Hot Dog</h3>
+                        <p>Sosis, barbekü, karamelize soğan, soslar.</p>
+                        <div class="price">₺150</div>
+                    </div>
+                </article>
+
+                <article class="card" data-aos="fade-right" data-aos-delay="200">
+                    <img src="https://i.hizliresim.com/giqqet9.jpg" alt="Patates & Sos" />
+                    <div class="card-body">
+                        <h3>Mexican Hot Dog</h3>
+                        <p>Sosis, jalapeno biber, sriracha sos, soslar.</p>
+                        <div class="price">₺150</div>
+                    </div>
+                </article>
+
+                <article class="card" data-aos="fade-right" data-aos-delay="200">
+                    <img src="https://i.hizliresim.com/9pe0epd.jpg" alt="Patates & Sos" />
+                    <div class="card-body">
+                        <h3>Russian Hot Dog</h3>
+                        <p>Sosis, rus salatası, turşu, soslar.</p>
+                        <div class="price">₺160</div>
+                    </div>
+                </article>
+
+                <!-- Diğer ürünler aynı formatta eklenecek -->
+            </div>
+
+            <p class="hint">Yana kaydırarak daha fazla ürün görebilirsiniz →</p>
+        </div>
+    </section>
+
+    <!-- FRANCHISE -->
+    <section id="franchise" class="franchise section">
+        <div class="container grid-2">
+            <div class="fr-text">
+                <h2 class="sec-title">Franchise / Bayilik</h2>
+                <p class="sec-text">
+                    Kârlı yatırım, kolay kurulum, hazır reçeteler ve güçlü marka desteği ile Cadde ailesine katılın.
+                </p>
+                <ul class="ticks">
+                    <li>Düşük giriş maliyeti</li>
+                    <li>Hazır menü tarifleri</li>
+                    <li>Sosyal medya kiti</li>
+                    <li>Açılış danışmanlığı</li>
+                </ul>
+                <a class="btn more" href="franchise.html">Daha Fazlası</a>
+            </div>
+            <div class="fr-media">
+                <img src="https://i.hizliresim.com/j6708wn.png" alt="Bayilik Fırsatı" class="owner-img" />
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section id="whyus" class="whyus section">
+  <div class="container">
+    <h2 class="sec-title" data-aos="fade-up">Neden Biz?</h2>
+
+    <div class="why-grid">
+      <div class="why-card" data-aos="zoom-in" data-aos-delay="0">
+        <h3>Sabit Lezzet</h3>
+        <p>Standart tarifler, her şubede aynı kalite.</p>
+      </div>
+
+      <div class="why-card" data-aos="zoom-in" data-aos-delay="100">
+        <h3>Hızlı Servis</h3>
+        <p>Zirve saatlerde bile hızlı teslimat.</p>
+      </div>
+
+      <div class="why-card" data-aos="zoom-in" data-aos-delay="200">
+        <h3>Taze Ürün</h3>
+        <p>Doğru saklanan, günlük hazırlanan malzemeler.</p>
+      </div>
+
+      <div class="why-card" data-aos="zoom-in" data-aos-delay="300">
+        <h3>Güçlü Marka</h3>
+        <p>Sosyal medya, dijital görünürlük, tasarım gücü.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- FOOTER -->
+<footer id="contact" class="footer">
+  <button class="back-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Sayfanın başına dön">
+    <svg viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="none"><path d="M5 15l7-7 7 7"></path></svg>
+  </button>
+
+  <div class="container">
+    <div class="foot-brand" data-aos="fade-up">
+      <img src="https://i.hizliresim.com/j6708wn.png" alt="Cadde Hot Dog & Burger" />
+      <p>Her ısırıkta aynı mutluluk.</p>
+    </div>
+
+    <div class="foot-follow" data-aos="fade-up" data-aos-delay="100">
+      <span>Bizi Takip Edin</span>
+      <div class="socials">
+        <a href="#" aria-label="Instagram" class="soc">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm6.5-.25a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z"/></svg>
+        </a>
+        <a href="#" aria-label="TikTok" class="soc">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M15 3c1 2 2 3 4 3v3c-1 0-3-.5-4-1v7a6 6 0 11-6-6h1v3h-1a3 3 0 103 3V3h3z"/></svg>
+        </a>
+        <a href="#" aria-label="Twitter" class="soc">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M22 5.8c-.7.3-1.4.5-2.1.6.8-.5 1.3-1.2 1.6-2.1-.7.4-1.6.7-2.4.9a3.7 3.7 0 00-6.4 2.5c0 .3 0 .6.1.8-3-.2-5.7-1.6-7.5-3.9-.3.6-.4 1.2-.4 1.9 0 1.3.7 2.5 1.8 3.2-.6 0-1.2-.2-1.7-.5v.1c0 1.8 1.3 3.3 3 3.7-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.5 1.9 2.6 3.5 2.6A7.5 7.5 0 012 18.6c1.7 1.1 3.8 1.8 6 1.8 7.2 0 11.1-6 11.1-11.1v-.5c.8-.5 1.4-1.2 1.9-2Z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-bottom" data-aos="fade-up" data-aos-delay="200">
+      <small>© <span id="year"></span> Cadde Hot Dog & Burger. Tüm hakları saklıdır.</small>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
