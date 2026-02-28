@@ -16,11 +16,8 @@
             --brand-yellow: #FFB703;
             --brand-orange: #FB8500;
             --ys-color: #EA004B;
-            /* Yemeksepeti Rengi */
             --ty-color: #F27A1A;
-            /* Trendyol Rengi */
             --gy-color: #5D3EBD;
-            /* Getir Rengi */
             --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
             --shadow-glow: 0 15px 35px rgba(230, 57, 70, 0.2);
         }
@@ -36,7 +33,7 @@
             background-color: var(--bg-light);
             color: var(--text-dark);
             overflow-x: hidden;
-            padding-bottom: 90px;
+            padding-bottom: 80px; /* Alt bar inceldiği için boşluğu biraz kıstık */
         }
 
         /* --- SİNEMATİK AÇILIŞ (LOGOSUZ ESKİ SAF ŞOK ETKİSİ) --- */
@@ -116,7 +113,6 @@
             margin-top: 50px;
         }
 
-        /* Küçültülmüş ve sığdırılmış başlık */
         .hero-title {
             font-size: 3.2rem;
             font-weight: 900;
@@ -153,7 +149,7 @@
             pointer-events: none;
         }
 
-        /* --- DİKKAT ÇEKİCİ BİLDİRİM BANTLARI (ZAM GELMEDİ & İNDİRİM) --- */
+        /* --- DİKKAT ÇEKİCİ BİLDİRİM BANTLARI --- */
         .alert-bar {
             background: var(--text-dark);
             color: #fff;
@@ -178,15 +174,12 @@
             color: #25D366;
         }
 
-        /* --- KATEGORİ SEKMELERİ --- */
+        /* --- KATEGORİ SEKMELERİ (AŞAĞI KAYMASI KAPATILDI) --- */
         .category-tabs {
             display: flex;
             justify-content: center;
             gap: 10px;
             margin: 30px 20px 20px;
-            position: sticky;
-            top: 10px;
-            z-index: 100;
             flex-wrap: wrap;
         }
 
@@ -396,7 +389,7 @@
             color: var(--brand-orange);
         }
 
-        /* --- SABİT ALT ÇUBUK (TELEFON SİPARİŞİ VURGULU) --- */
+        /* --- SABİT ALT ÇUBUK (DAHA İNCE VE ZARİF YAPILDI) --- */
         .bottom-bar {
             position: fixed;
             bottom: 0;
@@ -404,8 +397,8 @@
             width: 100%;
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
-            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
-            padding: 15px;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.08);
+            padding: 8px 15px;
             display: flex;
             justify-content: center;
             gap: 10px;
@@ -415,23 +408,23 @@
         .btn {
             flex: 1;
             max-width: 300px;
-            padding: 14px 5px;
+            padding: 8px 10px;
             border-radius: 50px;
-            font-weight: 800;
+            font-weight: 700;
             text-align: center;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
+            line-height: 1.2;
         }
 
         .btn-call {
             background: var(--brand-red);
             color: #fff;
-            border: 2px solid var(--brand-red);
         }
 
         .btn-wp {
@@ -446,7 +439,6 @@
                 line-height: 1.2;
             }
 
-            /* Telefondan taşmayı engeller */
             .hero-title span {
                 font-size: 2.8rem;
             }
@@ -470,16 +462,18 @@
                 font-size: 0.9rem;
             }
 
+            /* Mobilde alt bar inceltme ayarları */
             .btn {
-                font-size: 0.85rem;
-                flex-direction: column;
-                padding: 8px 5px;
-                border-radius: 15px;
+                font-size: 0.75rem;
+                flex-direction: row; /* Yazı ve ikonu yan yana dizer */
+                padding: 10px 8px;
+                border-radius: 30px;
+                text-align: left;
             }
 
             .btn i {
-                font-size: 1.2rem;
-                margin-bottom: 2px;
+                font-size: 1.3rem;
+                margin-bottom: 0;
             }
 
             .platforms-grid {
@@ -489,29 +483,14 @@
 
         /* --- ANİMASYONLAR --- */
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.5;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
         @keyframes fadeInUp {
@@ -536,7 +515,6 @@
     </header>
 
     <section class="hero">
-        <div class="bg-text">CADDE HOT DOG</div>
         <h1 class="hero-title">STANDARTLARI<br><span>UNUT.</span></h1>
         <p class="hero-subtitle">Çankırı'da sokak lezzetinin yeni zirvesi.</p>
     </section>
@@ -591,14 +569,10 @@
         </div>
 
         <div id="makarna" class="menu-category">
-            <div class="menu-item">
             </div>
-        </div>
 
         <div id="wrap" class="menu-category">
-            <div class="menu-item">
             </div>
-        </div>
 
         <div id="patso" class="menu-category">
             <div class="menu-item">
