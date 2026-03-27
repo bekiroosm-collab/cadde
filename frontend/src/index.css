@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #000000;
+  color: #F3F4F6;
+  font-family: 'Inter', sans-serif;
+}
+
+.neon-text {
+  text-shadow: 0 0 10px #39FF14, 0 0 20px #39FF14;
+}
+
+.purple-glow {
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+}
