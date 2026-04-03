@@ -149,3 +149,34 @@ window.addEventListener("load", () => {
     }, 220 + i * 120);
   });
 });
+
+/* --- YENİ EKLENEN: ÜRÜN KATEGORİ FİLTRELEME SİSTEMİ --- */
+const filterBtns = document.querySelectorAll('.cat-btn');
+const productCards = document.querySelectorAll('.product-track .card');
+const productTrack = document.getElementById("productTrack");
+
+if (filterBtns.length > 0 && productCards.length > 0) {
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Aktif buton stilini değiştir
+      document.querySelector('.cat-btn.active').classList.remove('active');
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      // Kartları gizle / göster
+      productCards.forEach(card => {
+        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // Filtreleme sonrası kaydırmayı en başa al
+      if (productTrack) {
+        productTrack.scrollLeft = 0;
+      }
+    });
+  });
+}
