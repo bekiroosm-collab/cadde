@@ -407,13 +407,17 @@ img {
 }
 
 /* Kusursuz Kaydırma (Slider) Alanı */
+/* Kusursuz Kaydırma (Slider) Alanı */
 .product-track {
     display: flex;
     flex-wrap: nowrap;
-    gap: 24px; /* Kartlar arası boşluk arttırıldı */
+    gap: 24px;
     overflow-x: auto;
+    overflow-y: hidden;
+    touch-action: pan-x pan-y; /* DÜZELTİLDİ: Hem yatay hem dikey kaydırmaya izin ver */
+    overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
-    padding: 10px 10px 40px 10px; /* Gölgelerin kesilmemesi için bol padding */
+    padding: 10px 10px 40px 10px;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
 }
@@ -568,14 +572,16 @@ img {
     }
 
     /* Ürün Kartları Mobilde Uçtan Uca Kaysın */
+    /* Ürün Kartları Mobilde Uçtan Uca Kaysın */
     .product-track {
         margin-left: -20px;
         margin-right: -20px;
         padding-left: 20px;
         padding-right: 20px;
-        scroll-padding-left: 20px; /* Kaydırıp bırakınca ekranın başına tam hizalar */
-        gap: 16px; /* Mobilde aralarındaki boşluğu azalttık */
+        scroll-padding-left: 20px;
+        gap: 16px;
         -webkit-overflow-scrolling: touch;
+        touch-action: pan-x pan-y; /* DÜZELTİLDİ: Mobilde her iki yöne kaydırma garantisi */
     }
 
     .modern-card {
