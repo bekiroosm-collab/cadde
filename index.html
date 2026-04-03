@@ -1,1141 +1,655 @@
-/* GENEL AYARLAR ------------------------------------------------------- */
-:root {
-  --bg: #ffffff;
-  --ink: #111827;
-  --muted: #6a7390;
-  --primary: #ff5449;
-  --stroke: #e9eef6;
-  --soft: #f7f9fc;
-  --radius: 16px;
-  --shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  font-family: Inter, sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-
-/* TOPBAR -------------------------------------------------------------- */
-.topbar {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 16px;
-  border-bottom: 1px solid var(--stroke);
-  background: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  position: sticky;
-  top: 0;
-  z-index: 50;
-}
-.top-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--ink);
-  text-decoration: none;
-}
-.top-item:hover { opacity: 0.8; }
-.top-hours { color: var(--muted); }
-
-.icon {
-  width: 16px;
-  height: 16px;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-.icon.phone {
-  background-image: url('data:image/svg+xml,<svg fill="%23111827" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1 .37 2.3 .57 3.6 .57a1 1 0 0 1 1 1V20a1 1 0 0 1 -1 1C11.3 21 3 12.7 3 2a1 1 0 0 1 1 -1h3.5a1 1 0 0 1 1 1c0 1.3 .2 2.5 .57 3.6a1 1 0 0 1 -.25 1L6.6 10.8Z"/></svg>');
-}
-.icon.whatsapp {
-  background-image: url('data:image/svg+xml,<svg fill="%23111827" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.5 23.5 3 18.7A10 10 0 1 1 12 22a10 10 0 0 1 -5 -.1L.5 23.5Zm6.8 -6.6A8 8 0 1 0 12 4a8 8 0 0 0 -4.3 14.9l.5 .3 -.3 .5c0 .1 -.3 .6 -.4 .8 .2 0 .7 -.2 .8 -.3l.5 -.3 .5 .2a8 8 0 0 0 7.3 -14.4A8 8 0 0 0 7.3 16.9Zm8 -3.1c-.4 -.2 -1 -.4 -1.2 -.5 -.2 0 -.4 0 -.6 .3 -.2 .3 -.7 .8 -.8 .9 -.1 .1 -.3 .1 -.6 0a6.3 6.3 0 0 1 -3 -2.6c-.2 -.3 0 -.5 .2 -.7 .2 -.2 .3 -.4 .5 -.6l.2 -.4V9c0 -.1 0 -.4 -.2 -.5l-1 -1c-.3 -.3 -.7 -.2 -.9 0a3 3 0 0 0 -1 2.2c0 .4 .1 .8 .3 1.2 .6 1.5 1.8 2.9 3.3 3.8 .5 .3 1 .6 1.5 .7 .6 .2 1.1 .1 1.6 .1 .5 -.1 1.5 -.7 1.7 -1.2 .2 -.5 .2 -1 0 -1.2Z"/></svg>');
-}
-
-
-/* NAVBAR -------------------------------------------------------------- */
-.nav {
-  position: sticky;
-  top: 52px;
-  background: #fff;
-  border-bottom: 1px solid var(--stroke);
-  z-index: 40;
-}
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-.nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 64px;
-}
-.logo img {
-  height: 38px;
-  object-fit: contain;
-}
-.menu {
-  display: flex;
-  gap: 20px;
-}
-.menu a {
-  text-decoration: none;
-  color: var(--ink);
-  font-weight: 600;
-}
-.menu a:hover {
-  color: var(--primary);
-}
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-.hamburger span {
-  display: block;
-  width: 22px;
-  height: 3px;
-  background: var(--ink);
-  margin: 4px 0;
-  border-radius: 3px;
-}
-
-
-/* HERO --------------------------------------------------------------- */
-.hero {
-  position: relative;
-  height: 92vh;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-}
-.hero-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-}
-.hero-content {
-  position: relative;
-  text-align: center;
-  z-index: 2;
-  padding: 0 16px;
-}
-.hero-title {
-  font-size: clamp(38px, 6vw, 76px);
-  font-family: "Playfair Display", serif;
-  color: white;
-  font-weight: 800;
-  letter-spacing: .5px;
-}
-.hero-sub {
-  color: white;
-  margin-top: 10px;
-  font-size: 18px;
-  max-width: 600px;
-  margin-inline: auto;
-  opacity: 0.9;
-}
-.hero-cta {
-  margin-top: 24px;
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.btn {
-  padding: 12px 24px;
-  border-radius: 24px;
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid transparent;
-  transition: transform .25s, opacity .25s;
-}
-.btn:hover { transform: translateY(-2px); }
-.btn.primary { background: var(--primary); color: white; }
-.btn.ghost { background: white; color: var(--ink); border-color: var(--stroke); }
-.btn.outline { background: transparent; color: white; border-color: white; }
-
-
-/* SCROLL DOWN --------------------------------------------- */
-.scroll-down {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-decoration: none;
-}
-.circle {
-  width: 46px;
-  height: 46px;
-  border-radius: 999px;
-  border: 2px solid #fff;
-  display: grid;
-  place-items: center;
-  animation: pulse 2s infinite;
-}
-.arrow {
-  width: 12px;
-  height: 12px;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
-  transform: rotate(45deg);
-  animation: bounce 2s infinite;
-}
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.3); }
-  50% { box-shadow: 0 0 0 10px rgba(255,255,255,0.1); }
-}
-@keyframes bounce {
-  0%, 100% { transform: rotate(45deg) translateY(-2px); }
-  50% { transform: rotate(45deg) translateY(4px); }
-}
-
-
-/* OWNER -------------------------------------------------------------- */
-.section {
-  padding: 80px 0;
-}
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-.owner-img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-
-/* ABOUT -------------------------------------------------------------- */
-.narrow {
-  max-width: 760px;
-  text-align: center;
-  margin-inline: auto;
-}
-.sec-title {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(28px, 4vw, 42px);
-  margin-bottom: 10px;
-}
-.sec-text {
-  color: var(--muted);
-  margin-top: 12px;
-  line-height: 1.6;
-}
-.more {
-  margin-top: 24px;
-  display: inline-block;
-}
-
-
-/* PRODUCTS -------------------------------------------------------------- */
-/* --- YENİ EKLENEN: KATEGORİ FİLTRELERİ VE ÇİFT FİYAT TASARIMI --- */
-
-/* =========================================================
-   YENİ NESİL PREMIUM ÜRÜN KARTLARI VE MENÜ TASARIMI 
-   ========================================================= */
-
-/* Başlık ve Okların Hizasını Düzeltme */
-.modern-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-    flex-wrap: wrap; 
-    gap: 15px;
-}
-.modern-head .sec-title {
-    margin-bottom: 0;
-}
-
-/* Modern Yuvarlak Yön Tuşları */
-.modern-controls {
-    display: flex;
-    gap: 12px;
-}
-.modern-controls .slider-btn {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    border: 1px solid #e2e8f0;
-    background: #fff;
-    color: var(--ink);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-}
-.modern-controls .slider-btn:hover {
-    background: var(--primary);
-    border-color: var(--primary);
-    color: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(255, 84, 73, 0.25);
-}
-
-/* Premium Kategori Filtre Butonları */
-/* Kategoriler Mobilde Kusursuz 2x2 Izgara (Grid) Görünümü */
-    .modern-filters {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Tam eşit 2 sütun */
-        gap: 12px; /* Butonlar arası ferah boşluk */
-        margin-left: 0;
-        margin-right: 0;
-        padding-left: 0;
-        padding-right: 0;
-        overflow-x: visible;
-        margin-bottom: 24px;
-    }
-    
-    .modern-filters .cat-btn {
-        width: 100%;
-        padding: 12px 6px; /* Dokunma alanı genişletildi */
-        font-size: 14px;
-        border-radius: 12px; /* Tam yuvarlak yerine şık, modern köşe kıvrımı */
-        white-space: normal; /* Uzun kelimeler taşıp çirkin durmasın diye */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* Butonlara hafif 3D hissi ve derinlik */
-    }
-
-    /* Masaüstü: Premium Kategori Filtre Butonları */
-.modern-filters {
-    display: flex;
-    justify-content: center; /* Masaüstünde butonları ortala */
-    flex-wrap: wrap; /* Ekrana sığmazsa alt satıra şıkça inmesini sağla */
-    gap: 16px;
-    margin-bottom: 32px;
-}
-
-.modern-filters .cat-btn {
-    padding: 12px 28px; /* Dokunma alanını ferahlattık */
-    border: none;
-    background: #f8fafc; /* Daha soft, modern bir gri */
-    color: #475569;
-    border-radius: 99px; /* Tam köşesiz, hap tasarımı */
-    font-weight: 600;
-    font-size: 15px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03); /* Hafif modern 3D gölge */
-    flex-shrink: 0;
-}
-
-.modern-filters .cat-btn:hover {
-    background: #e2e8f0;
-    color: #1e293b;
-    transform: translateY(-2px); /* Üstüne gelince hafif yukarı kalkma efekti */
-}
-
-.modern-filters .cat-btn.active {
-    background: var(--primary);
-    color: #fff;
-    box-shadow: 0 6px 15px rgba(255, 84, 73, 0.35);
-    transform: translateY(-2px);
-}
-/* Mobilde Kategoriler 2x2 Izgara ve Köşesiz Hap Tasarımı */
-    .modern-filters {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Tam simetrik iki sütun */
-        gap: 12px;
-        margin-left: 0;
-        margin-right: 0;
-        padding-left: 0;
-        padding-right: 0;
-        overflow-x: visible;
-        margin-bottom: 24px;
-    }
-    
-    .modern-filters .cat-btn {
-        width: 100%;
-        padding: 12px 6px;
-        font-size: 14px;
-        border-radius: 99px; /* Mobilde de köşesiz tasarım korundu */
-        white-space: nowrap; /* Mobilde yazılar yan yana kalsın */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        transform: none !important; /* Mobilde hover efekti takılma yapmasın diye kapalı */
-    }
-.modern-filters .cat-btn:hover {
-    background: #e2e8f0;
-    color: #1e293b;
-}
-.modern-filters .cat-btn.active {
-    background: var(--primary);
-    color: #fff;
-    box-shadow: 0 6px 15px rgba(255, 84, 73, 0.3);
-}
-
-/* Kusursuz Kaydırma (Slider) Alanı */
-/* Kusursuz Kaydırma (Slider) Alanı */
-.product-track {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 24px;
-    overflow-x: auto;
-    overflow-y: hidden; /* EKLENDİ: Kendi içindeki gizli dikey taşmaları keser */
-    touch-action: pan-y; /* ÇOK ÖNEMLİ: Parmak yukarı/aşağı yapıldığında sayfanın kilitlenmesini engeller */
-    overscroll-behavior-x: contain; /* EKLENDİ: Sağa/sola kaydırma bitince sayfanın esnemesini engeller */
-    scroll-snap-type: x mandatory;
-    padding: 10px 10px 40px 10px;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-}
-.product-track::-webkit-scrollbar {
-    height: 6px;
-}
-.product-track::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 10px;
-}
-
-/* Modern Kart Tasarımı */
-.modern-card {
-    flex: 0 0 290px; /* Kart genişliği hafif büyütüldü */
-    background: #fff;
-    border: 1px solid #f1f5f9;
-    border-radius: 24px; /* Daha yumuşak köşeler */
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    scroll-snap-align: start;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
-}
-.modern-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    border-color: #e2e8f0;
-}
-
-/* Ürün Görseli Alanı (Hafif gri arkaplan ile resmi patlatma) */
-.card-img-wrapper {
-    width: 100%;
-    height: 190px;
-    background: #f8fafc;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    padding: 20px;
-    overflow: hidden;
-}
-.card-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: transform 0.4s ease;
-    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1)); /* Resme ekstra 3D hissi */
-}
-.modern-card:hover .card-img-wrapper img {
-    transform: scale(1.1); /* Üstüne gelince hafif büyüme */
-}
-
-/* Kart İçerik */
-.modern-card .card-body {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-.modern-card h3 {
-    font-size: 19px;
-    color: #0f172a;
-    margin-bottom: 8px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-}
-.modern-card p {
-    font-size: 14px;
-    color: #64748b;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    flex-grow: 1; /* İçerik kısaysa fiyatı hep alta iter */
-}
-
-/* Estetik Fiyat Alanı */
-.modern-card .price-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-top: 16px;
-    border-top: 2px dashed #e2e8f0; /* Basic kutu yerine kesik çizgi ayrımı */
-    margin-top: auto;
-}
-.modern-card .price-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.modern-card .price-label {
-    font-size: 11px;
-    font-weight: 800;
-    color: #64748b;
-    background: #f1f5f9;
-    padding: 6px 10px;
-    border-radius: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-.modern-card .price-val {
-    font-size: 18px;
-    font-weight: 800;
-    color: #0f172a;
-}
-.modern-card .price-row:last-child .price-val {
-    color: var(--primary); /* Paket fiyatını veya ikinci fiyatı renklendir */
-}
-
-/* Filtrelenip Gizlenen Kartlar */
-.modern-card.hidden {
-    display: none !important;
-}
-
-/* Mobil Uyum */
-@media (max-width: 768px) {
-    .modern-card {
-        flex: 0 0 85%; /* Mobilde tam ekran olmasın, yana kaydırılacağı belli olsun */
-    }
-}
-
-/* =========================================================
-   MOBİL İÇİN KUSURSUZ KAYDIRMA VE GÖRÜNÜM OPTİMİZASYONU
-   ========================================================= */
-
-@media (max-width: 768px) {
-    /* Başlık ve Okları Mobilde Düzenleme */
-    .modern-head {
-        margin-bottom: 16px;
-    }
-    .modern-head .sec-title {
-        font-size: 26px; /* Mobilde başlık biraz daha kibar olsun */
-    }
-    .modern-controls {
-        display: none; /* Mobilde dokunmatik kaydırma olacağı için oklara gerek yok, alanı daraltmasın */
-    }
-
-    /* Kategoriler Mobilde Uçtan Uca (Edge-to-Edge) Kaysın */
-    .modern-filters {
-        margin-left: -20px; /* Container padding'ini kırıp ekran sonuna uzatır */
-        margin-right: -20px;
-        padding-left: 20px;
-        padding-right: 20px;
-        gap: 8px;
-        -webkit-overflow-scrolling: touch; /* iOS için yağ gibi kaydırma */
-        margin-bottom: 24px;
-    }
-    
-    .modern-filters .cat-btn {
-        padding: 8px 16px;
-        font-size: 14px; /* Mobilde butonlar bir tık küçüldü, ekrana daha çok sığsın */
-    }
-
-    /* Ürün Kartları Mobilde Uçtan Uca Kaysın */
-    .product-track {
-        margin-left: -20px;
-        margin-right: -20px;
-        padding-left: 20px;
-        padding-right: 20px;
-        scroll-padding-left: 20px; /* Kaydırıp bırakınca ekranın başına tam hizalar */
-        gap: 16px; /* Mobilde aralarındaki boşluğu azalttık */
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .modern-card {
-        /* flex: 0 0 85% yerine vw (viewport width) kullanıyoruz. 
-           Böylece ekranın %82'sini tam kaplar, yandaki ürünün ucu tam kararında gözükür */
-        flex: 0 0 82vw; 
-        scroll-snap-align: start; /* Bırakıldığında pürüzsüzce ilk karta kilitlenir */
-    }
-    
-    /* Mobilde resim yüksekliği çok abartı durmasın diye hafif kıstık */
-    .card-img-wrapper {
-        height: 160px; 
-        padding: 10px;
-    }
-    
-    .modern-card h3 {
-        font-size: 17px;
-    }
-}
-
-
-/* FRANCHISE -------------------------------------------------------------- */
-.ticks {
-  list-style: none;
-  padding: 0;
-  margin: 16px 0;
-}
-.ticks li {
-  padding-left: 24px;
-  position: relative;
-  margin-bottom: 6px;
-  font-size: 15px;
-}
-.ticks li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--primary);
-  font-weight: bold;
-}
-
-
-/* WHY US -------------------------------------------------------------- */
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-  margin-top: 24px;
-  position: relative;
-}
-.why-grid::before {
-  content: "";
-  position: absolute;
-  inset: -40px 0;
-  background: radial-gradient(circle at 30% 120%, rgba(255, 84, 73, 0.08), transparent 60%);
-  z-index: 0;
-}
-.why-card {
-  background: #ffffffcc;
-  backdrop-filter: blur(8px);
-  border: 1px solid var(--stroke);
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: var(--shadow);
-  position: relative;
-  z-index: 2;
-  transition: all 0.2s ease;
-  transform: translateY(0);
-  opacity: 0;
-}
-.why-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-}
-.why-card[data-aos] {
-  opacity: 1 !important;
-}
-
-
-
-/* FOOTER -------------------------------------------------------------- */
-/* --------------------- FOOTER ----------------------- */
-.footer {
-  background: linear-gradient(175deg, #0f141e, #1a2433);
-  color: #e7ecf8;
-  padding: 80px 0 40px;
-  text-align: center;
-  position: relative;
-}
-.footer .foot-brand img {
-  height: 60px;
-  filter: brightness(1.1);
-  margin-bottom: 12px;
-}
-.footer .foot-brand p {
-  opacity: 0.85;
-  font-size: 15px;
-}
-.footer .foot-follow {
-  margin-top: 28px;
-}
-.footer .socials {
-  margin-top: 8px;
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-}
-.footer .soc {
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  transition: all 0.25s ease;
-}
-.footer .soc:hover {
-  transform: translateY(-3px);
-  background: var(--primary);
-  border-color: var(--primary);
-}
-.footer .soc svg {
-  width: 22px;
-  height: 22px;
-  fill: currentColor;
-}
-
-/* Scroll-to-top circle */
-.footer .back-top {
-  position: absolute;
-  top: -22px;
-  right: 50%;
-  transform: translateX(50%);
-  width: 50px;
-  height: 50px;
-  background: var(--primary);
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  color: white;
-  cursor: pointer;
-  box-shadow: var(--shadow);
-  animation: floatUp 3s ease-in-out infinite;
-  border: none;
-}
-.footer .back-top:hover {
-  background: #ff6a63;
-}
-@keyframes floatUp {
-  0%,100% { transform: translateX(50%) translateY(0); }
-  50% { transform: translateX(50%) translateY(-8px); }
-}
-
-.footer .foot-bottom {
-  margin-top: 28px;
-  font-size: 14px;
-  opacity: 0.6;
-}
-
-
-
-
-
-/* RESPONSIVE -------------------------------------------------------------- */
-@media (max-width: 992px) {
-  .grid-2 {
-    grid-template-columns: 1fr;
-  }
-  .why-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .nav {
-    top: 44px;
-  }
-}
-
-@media (max-width: 768px) {
-  .menu {
-    display: none;
-    position: absolute;
-    top: 64px;
-    right: 20px;
-    background: #fff;
-    border: 1px solid var(--stroke);
-    border-radius: 12px;
-    padding: 10px 14px;
-    flex-direction: column;
-    gap: 10px;
-    box-shadow: var(--shadow);
-  }
-  .menu.open { display: flex; }
-  .hamburger { display: block; }
-  .why-grid {
-    grid-template-columns: 1fr;
-  }
-  .product-track {
-    grid-auto-columns: 78%;
-  }
-  .hero {
-    height: 80vh;
-  }
-  .hero-title {
-    font-size: 38px;
-  }
-}
-
-/* =========================================================
-   FRANCHISE (BAYİLİK) BÖLÜMÜ ÖZEL TASARIMI
-   ========================================================= */
-
-.franchise {
-    background: var(--soft); /* Arka planı hafif gri/mavi yaparak ürünler bölümünden ayırdık */
-}
-
-.franchise-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Yarı yarıya (yazı - görsel) yerleşim */
-    gap: 48px;
-    align-items: center;
-    background: #fff;
-    padding: 48px;
-    border-radius: 32px; /* Yumuşak ve modern köşeler */
-    box-shadow: 0 20px 50px rgba(0,0,0,0.06); /* Kaliteli derinlik hissi */
-    border: 1px solid var(--stroke);
-}
-
-.franchise-content .sec-title {
-    font-size: clamp(26px, 3vw, 36px);
-    margin-bottom: 16px;
-    line-height: 1.2;
-}
-
-.franchise-content .sec-text {
-    margin-bottom: 32px;
-    font-size: 15px;
-}
-
-/* Onay Tikleri (Maddeler) */
-.franchise-benefits {
-    list-style: none;
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.franchise-benefits li {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--ink);
-}
-
-.franchise-benefits li svg {
-    width: 26px;
-    height: 26px;
-    color: #fff;
-    background: var(--primary); /* İkon arka planı marka rengi */
-    padding: 6px;
-    border-radius: 50%; /* Tam yuvarlak ikonlar */
-    flex-shrink: 0;
-    box-shadow: 0 4px 10px rgba(255, 84, 73, 0.3); /* İkona özel hafif parlama efekti */
-}
-
-/* Sağ Taraf Görsel Alanı */
-.franchise-image {
-    position: relative;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    height: 100%;
-    min-height: 400px;
-}
-
-.franchise-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
-.franchise-wrapper:hover .franchise-image img {
-    transform: scale(1.05); /* Üstüne gelince görsel çok hafif ve yavaşça büyür */
-}
-
-/* Görsel Üzerindeki Şık Rozet (Badge) */
-.franchise-badge {
-    position: absolute;
-    bottom: 30px;
-    left: -20px; /* Görselden hafifçe dışarı taşarak 3D hissi verir */
-    background: var(--ink); /* Siyah arka plan */
-    color: #fff;
-    padding: 16px 24px;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    z-index: 2;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.franchise-badge .badge-num {
-    font-size: 28px;
-    font-weight: 800;
-    color: var(--primary); /* Marka rengi */
-    line-height: 1;
-    margin-bottom: 4px;
-}
-
-.franchise-badge .badge-text {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.9;
-}
-
-/* Mobil ve Tablet Uyumu */
-@media (max-width: 992px) {
-    .franchise-wrapper {
-        grid-template-columns: 1fr; /* Alt alta geçsin */
-        gap: 32px;
-        padding: 32px;
-    }
-    .franchise-image {
-        min-height: 300px;
-    }
-    .franchise-badge {
-        left: 20px; /* Mobilde dışarı taşmasını iptal edip içeri aldık */
-        bottom: 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .franchise-wrapper {
-        padding: 24px;
-        border-radius: 24px;
-    }
-    .franchise-content .sec-title {
-        font-size: 24px;
-    }
-}
-
-/* =========================================================
-   FRANCHISE (BAYİLİK) BÖLÜMÜ - MODERN & MOBİL ÖNCELİKLİ
-   ========================================================= */
-
-.franchise {
-    background: var(--soft); /* Arka planı hafif gri yaparak ayırdık */
-}
-
-.franchise-wrapper {
-    display: flex;
-    flex-direction: column; /* MOBİL İÇİN: Önce alt alta dizelim */
-    background: #fff;
-    border-radius: 32px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.06);
-    border: 1px solid var(--stroke);
-    overflow: hidden; /* Kenar yuvarlaklığını içeride tutmak için */
-}
-
-/* Sağ Taraf Görsel Alanı (Mobilde Üstte) */
-.franchise-image {
-    position: relative;
-    width: 100%;
-    height: 250px; /* Mobilde görselin yüksekliğini sınırladık */
-    overflow: hidden;
-    order: 1; /* Mobilde en üstte görünsün */
-}
-
-.franchise-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Görseli düzgünce sığdır */
-    transition: transform 0.6s ease;
-}
-
-/* Görsel Üzerindeki Şık Rozet (Badge) */
-.franchise-badge {
-    position: absolute;
-    bottom: 20px;
-    right: 20px; /* Mobilde sağ alta şıkça yerleştirdik */
-    background: rgba(30, 41, 59, 0.95); /* Hafif şeffaf koyu arka plan */
-    backdrop-filter: blur(5px); /* Modern cam efekti */
-    color: #fff;
-    padding: 12px 18px;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    z-index: 2;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.franchise-badge .badge-num {
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--primary); /* Marka rengi */
-    line-height: 1;
-    margin-bottom: 2px;
-}
-
-.franchise-badge .badge-text {
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.9;
-}
-
-/* Sol Taraf: İçerik (Mobilde Altta) */
-.franchise-content {
-    padding: 32px 24px; /* Mobilde kenar boşluklarını daralttık */
-    order: 2; /* Mobilde görselin altında görünsün */
-    text-align: center; /* Mobilde metni ortaladık */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* İçerikleri yatayda ortala */
-}
-
-.franchise-content .sec-title {
-    font-size: 24px; /* Mobilde başlığı küçülttük */
-    margin-bottom: 12px;
-    line-height: 1.2;
-}
-
-.franchise-content .sec-text {
-    margin-bottom: 24px;
-    font-size: 14px;
-    opacity: 0.85;
-}
-
-/* Onay Tikleri (Maddeler) */
-.franchise-benefits {
-    list-style: none;
-    margin-bottom: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%; /* Tam genişlik */
-    align-items: flex-start; /* Tikleri sol hizalı yapalım ama maddeyi ortalayacağız */
-}
-
-.franchise-benefits li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ink);
-    text-align: left; /* Yazı sol hizalı kalsın */
-    margin: 0 auto; /* Maddeyi ortada tut */
-    max-width: 90%; /* Çok uzamasını engelle */
-}
-
-.franchise-benefits li svg {
-    width: 22px;
-    height: 22px;
-    color: #fff;
-    background: var(--primary); /* İkon arka planı marka rengi */
-    padding: 5px;
-    border-radius: 50%; /* Tam yuvarlak ikonlar */
-    flex-shrink: 0;
-    box-shadow: 0 4px 10px rgba(255, 84, 73, 0.2);
-}
-
-/* Butonun mobilde tam genişlik olması */
-.franchise-content .btn.primary {
-    width: 100%;
-    max-width: 320px; /* Çok uzamasını engelle */
-    justify-content: center;
-}
-
-/* =========================================================
-   MEDIA QUERY: MASAÜSTÜ İYİLEŞTİRMELERİ
-   (Masaüstünde eski güzel görüntüyü korumak için)
-   ========================================================= */
-@media (min-width: 993px) {
-    .franchise-wrapper {
-        flex-direction: row; /* Masaüstünde yan yana diz */
-        align-items: center;
-        padding: 0; /* İçerik padding'ini kaldırıp içeriye verdik */
-    }
-
-    /* Sağ Taraf Görsel Alanı (Masaüstünde Sağda) */
-    .franchise-image {
-        width: 50%;
-        height: 100%;
-        min-height: 500px;
-        order: 2; /* Görsel sağda */
-    }
-
-    .franchise-wrapper:hover .franchise-image img {
-        transform: scale(1.05); /* Üstüne gelince görsel çok hafif ve yavaşça büyür */
-    }
-
-    /* Görsel Üzerindeki Şık Rozet (Masaüstünde Daha Taşma Efektli) */
-    .franchise-badge {
-        bottom: 30px;
-        right: auto;
-        left: -30px; /* Görselden hafifçe dışarı taşarak 3D hissi verir */
-        padding: 16px 24px;
-        border-radius: 16px;
-    }
-
-    .franchise-badge .badge-num {
-        font-size: 28px;
-    }
-
-    .franchise-badge .badge-text {
-        font-size: 11px;
-    }
-
-    /* Sol Taraf: İçerik (Masaüstünde Solda) */
-    .franchise-content {
-        width: 50%;
-        padding: 60px; /* Masaüstünde ferah boşluklar */
-        order: 1; /* İçerik solda */
-        text-align: left; /* Masaüstünde metni sola hizala */
-        align-items: flex-start; /* İçerikleri sola hizala */
-    }
-
-    .franchise-content .sec-title {
-        font-size: 36px;
-        margin-bottom: 16px;
-    }
-
-    .franchise-content .sec-text {
-        font-size: 15px;
-    }
-
-    .franchise-benefits {
-        align-items: flex-start;
-    }
-
-    .franchise-benefits li {
-        margin: 0; /* Ortalamayı iptal et */
-        font-size: 15px;
-        max-width: 100%;
-    }
-
-    .franchise-benefits li svg {
-        width: 26px;
-        height: 26px;
-        padding: 6px;
-    }
-    
-    .franchise-content .btn.primary {
-        width: auto; /* Masaüstünde normal genişlik */
-    }
-}
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadde Hot Dog & Burger</title>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animasyonları -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <!-- Stil Dosyamız -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Topbar -->
+    <div class="topbar">
+        <a class="top-item" href="tel:+905437485476">
+            <span class="icon phone"></span> Bizi arayın
+        </a>
+        <a class="top-item" href="https://wa.me/905437485476" target="_blank">
+            <span class="icon whatsapp"></span> WhatsApp • İletişim
+        </a>
+        <div class="top-hours">Pazartesi – Pazar : 12.00 – 00.00</div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="nav">
+        <div class="container nav-inner">
+            <a class="logo" href="#"><img src="https://i.hizliresim.com/j6708wn.png" alt="Cadde Hot Dog & Burger" /></a>
+            <nav class="menu">
+                <a href="#hero">Anasayfa</a>
+                <a href="#about">Hakkımızda</a>
+                <a href="#products">Ürünler</a>
+                <a href="#franchise">Bayilik</a>
+                <a href="#whyus">Neden Biz?</a>
+                <a href="#contact">İletişim</a>
+            </nav>
+            <button class="hamburger"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <!-- HERO (Videolu) -->
+    <section id="hero" class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="img/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+            <h1 class="hero-title">Sıcak. Hızlı. Efsane Lezzet.</h1>
+            <p class="hero-sub">Burger & Hot Dog’larımızla Çankırı’da lezzeti zirveye taşıyoruz.</p>
+
+            <div class="hero-cta">
+                <a class="btn primary" href="https://wa.me/905437485476" target="_blank">Sipariş Ver</a>
+                <a class="btn ghost" href="#products">Menüyü Gör</a>
+                <a class="btn outline" href="#franchise">Bayilik Bilgisi</a>
+            </div>
+        </div>
+
+        <a class="scroll-down" href="#owner"><span class="circle"><span class="arrow"></span></span></a>
+    </section>
+
+    <!-- OWNER -->
+    <section id="owner" class="owner section">
+        <div class="container grid-2">
+            <div class="owner-media">
+                <img src="https://i.hizliresim.com/qf3uiup.jpg" alt="Kurucu Fotoğrafı" class="owner-img" />
+            </div>
+            <div class="owner-media">
+                <img src="https://i.hizliresim.com/kk2vwi1.jpg" alt="Mutfaktan Kareler" class="owner-img" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about section">
+        <div class="container narrow">
+            <h2 class="sec-title">Hakkımızda</h2>
+            <p class="sec-text">
+                Sokak lezzetlerini modern ve hijyenik bir sunumla müşterilerimize ulaştırıyoruz.
+                Günlük kullanılan taze malzemelerle her gün aynı lezzeti koruyoruz.
+            </p>
+            <a class="btn more" href="hakkimizda.html">Daha Fazlası</a>
+        </div>
+    </section>
+
+    <section id="products" class="products section">
+        <div class="container">
+            <div class="sec-head modern-head">
+                <h2 class="sec-title">Ürünlerimiz & Fiyatlarımız</h2>
+                <div class="slider-controls modern-controls">
+                    <button class="slider-btn prev">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="slider-btn next">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="category-filters modern-filters">
+                <button class="cat-btn active" data-filter="all">Tüm Menü</button>
+                <button class="cat-btn" data-filter="hamburger">Hamburgerler</button>
+                <button class="cat-btn" data-filter="hotdog">Hot Dog'lar</button>
+                <button class="cat-btn" data-filter="makarna">Makarnalar</button>
+            </div>
+
+            <div class="product-track" id="productTrack">
+
+                <article class="card modern-card" data-category="makarna">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/my5klw3.jpg" alt="Penne Arrabbiata" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Penne Arrabbiata</h3>
+                        <p>Tek Kişilik</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺210</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺280</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="makarna">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/9pwcfhz.jpg" alt="Penne Arrabbiata" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Linguine Alfredo</h3>
+                        <p>Tek Kişilik</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺220</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺280</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="makarna">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/ee1jf9x.jpg" alt="Penne Arrabbiata" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Spagetti Bolognese</h3>
+                        <p>Tek Kişilik</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺200</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺280</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="makarna">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/s2lc40r.jpg" alt="Penne Arrabbiata" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Penne Napoliten</h3>
+                        <p>Tek Kişilik</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺200</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺270</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="hamburger">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/qemrlaj.jpg" alt="Classic Burger" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Classic Burger</h3>
+                        <p>Ketçap, mayonez, marul, domates, turşu. Patates kızartması ile</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺290</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺350</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="hamburger">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/qemrlaj.jpg" alt="Cheese Burger" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Cheese Burger</h3>
+                        <p>Ketçap, mayonez, marul, domates, turşu, cheddar peyniri. Patates kızartması ile</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺310</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺370</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="hamburger">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/l0u4wta.jpg" alt="Cheese Burger" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Mexican Burger</h3>
+                        <p>Ketçap, mayonez, marul, domates, turşu, jalapeno biberi, sriracha sosu. Patates kızartması
+                            ile</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺300</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺360</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="hamburger">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/79pt4hy.jpg" alt="Cheese Burger" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Chicken Burger</h3>
+                        <p>Çıtır tavuk, ketçap, mayonez, marul, domates, turşu. Patates kızartması ile</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺210</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺270</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="hamburger">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/qemrlaj.jpg" alt="Cheese Burger" />
+                    </div>
+                    <div class="card-body">
+                        <h3>BBQ Burger</h3>
+                        <p>Ketçap, mayonez, marul, domates, karamelize soğan, barbekü sos. Patates kızartması ile</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺300</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺360</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="hamburger">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/pilm8lm.jpg" alt="Cheese Burger" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Double Burger</h3>
+                        <p>Çift köfte, ketçap, mayonez, marul, domates, turşu. Patates kızartması ile</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺380</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺440</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="hamburger">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/kfckma2.jpg" alt="Cheese Burger" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Chef Burger</h3>
+                        <p>Ketçap, mayonez, marul, domates, turşu, yumurta. Patates kızartması ile</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺320</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺380</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="hamburger">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/3h3smje.jpg" alt="Cheese Burger" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Bomba Burger</h3>
+                        <p>Çift dana köfte, çift cheddar, marul, domates, turşu, mayonez, ketçap, patates kızartması</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺380</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺450</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="hamburger">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/gfu0i20.jpg" alt="Cheese Burger" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Kıtır Burger</h3>
+                        <p>Dana köfte, marul, domates, turşu, kıtır soğan, ketçap, mayonez, patates kızartması</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺290</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺360</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="hotdog">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/giqqet9.jpg" alt="Classic Hot Dog" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Classic Hot Dog</h3>
+                        <p>Sosis, ketçap, mayonez, patates kızartması</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺150</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺240</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="hotdog">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/jl7lkr8.jpg" alt="Cheese Hot Dog" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Cheese Hot Dog</h3>
+                        <p>Sosis, ketçap, mayonez, cheddar peyniri, turşu, patates kızartması</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺160</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺250</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="hotdog">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/giqqet9.jpg" alt="Cheese Hot Dog" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Nacho Hot Dog</h3>
+                        <p>Sosis, ketçap, mayonez, çıtır soğan, patates kızartması</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺160</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺250</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="hotdog">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/giqqet9.jpg" alt="Cheese Hot Dog" />
+                    </div>
+                    <div class="card-body">
+                        <h3>BBQ Hot Dog</h3>
+                        <p>Sosis, ketçap, mayonez, karamelize soğan, barbekü sos, patates kızartması</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺150</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺240</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="hotdog">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/qdn3hcd.jpg" alt="Cheese Hot Dog" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Mexican Hot Dog</h3>
+                        <p>Sosis, ketçap, mayonez, jalapone biber, sriracaha sos, patates kızartması</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺150</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺240</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="hotdog">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/giqqet9.jpg" alt="Cheese Hot Dog" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Cadde Hot Dog</h3>
+                        <p>Sosis, ketçap, mayonez, mor soğan, turşu, patates kızartması</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺150</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺240</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card modern-card" data-category="hotdog">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/giqqet9.jpg" alt="Cheese Hot Dog" />
+                    </div>
+                    <div class="card-body">
+                        <h3>Russian Hot Dog</h3>
+                        <p>Sosis, ketçap, mayonez, Rus salatası, patates kızartması</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺150</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺240</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="franchise" class="franchise section">
+        <div class="container">
+            <div class="franchise-wrapper" data-aos="fade-up">
+                
+                <div class="franchise-content">
+                    <h2 class="sec-title">Cadde Hot Dog & Burger Ailesine Katılın</h2>
+                    <p class="sec-text">
+                        Kanıtlanmış lezzetimiz, güçlü dijital altyapımız ve yüksek kâr marjlı iş modelimizle kendi işinizin patronu olun. Riskleri minimuma indirerek, hazır bir müşteri kitlesine hitap edin.
+                    </p>
+
+                    <ul class="franchise-benefits">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Düşük Yatırım, Yüksek Kâr Marjı
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Kurulum ve Mimari Proje Desteği
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Profesyonel Reklam ve Marka Yönetimi
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Sürekli Personel ve Operasyon Eğitimi
+                        </li>
+                    </ul>
+
+                    <a class="btn primary" href="https://wa.me/905437485476?text=Merhaba,%20Cadde%20Hot%20Dog%20%26%20Burger%20bayiliği%20hakkında%20detaylı%20bilgi%20almak%20istiyorum." target="_blank">
+                        Hemen Başvurun
+                    </a>
+                </div>
+
+                <div class="franchise-image">
+                    <img src="https://i.hizliresim.com/g65kip7.jpg" alt="Bayilik Fırsatı" />
+                    <div class="franchise-badge">
+                        <span class="badge-num">%100</span>
+                        <span class="badge-text">Operasyon Desteği</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section id="whyus" class="whyus section">
+        <div class="container">
+            <h2 class="sec-title" data-aos="fade-up">Neden Biz?</h2>
+
+            <div class="why-grid">
+                <div class="why-card" data-aos="zoom-in" data-aos-delay="0">
+                    <h3>Sabit Lezzet</h3>
+                    <p>Standart tarifler, her şubede aynı kalite.</p>
+                </div>
+
+                <div class="why-card" data-aos="zoom-in" data-aos-delay="100">
+                    <h3>Hızlı Servis</h3>
+                    <p>Zirve saatlerde bile hızlı teslimat.</p>
+                </div>
+
+                <div class="why-card" data-aos="zoom-in" data-aos-delay="200">
+                    <h3>Taze Ürün</h3>
+                    <p>Doğru saklanan, günlük hazırlanan malzemeler.</p>
+                </div>
+
+                <div class="why-card" data-aos="zoom-in" data-aos-delay="300">
+                    <h3>Güçlü Marka</h3>
+                    <p>Sosyal medya, dijital görünürlük, tasarım gücü.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer id="contact" class="footer">
+        <button class="back-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            aria-label="Sayfanın başına dön">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke="white" fill="none">
+                <path d="M5 15l7-7 7 7"></path>
+            </svg>
+        </button>
+
+        <div class="container">
+            <div class="foot-brand" data-aos="fade-up">
+                <img src="https://i.hizliresim.com/j6708wn.png" alt="Cadde Hot Dog & Burger" />
+                <p>Her ısırıkta aynı mutluluk.</p>
+            </div>
+
+            <div class="foot-follow" data-aos="fade-up" data-aos-delay="100">
+                <span>Bizi Takip Edin</span>
+                <div class="socials">
+                    <a href="#" aria-label="Instagram" class="soc">
+                        <svg viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm6.5-.25a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="TikTok" class="soc">
+                        <svg viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M15 3c1 2 2 3 4 3v3c-1 0-3-.5-4-1v7a6 6 0 11-6-6h1v3h-1a3 3 0 103 3V3h3z" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter" class="soc">
+                        <svg viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M22 5.8c-.7.3-1.4.5-2.1.6.8-.5 1.3-1.2 1.6-2.1-.7.4-1.6.7-2.4.9a3.7 3.7 0 00-6.4 2.5c0 .3 0 .6.1.8-3-.2-5.7-1.6-7.5-3.9-.3.6-.4 1.2-.4 1.9 0 1.3.7 2.5 1.8 3.2-.6 0-1.2-.2-1.7-.5v.1c0 1.8 1.3 3.3 3 3.7-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.5 1.9 2.6 3.5 2.6A7.5 7.5 0 012 18.6c1.7 1.1 3.8 1.8 6 1.8 7.2 0 11.1-6 11.1-11.1v-.5c.8-.5 1.4-1.2 1.9-2Z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="foot-bottom" data-aos="fade-up" data-aos-delay="200">
+                <small>© <span id="year"></span> Cadde Hot Dog & Burger. Tüm hakları saklıdır.</small>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
