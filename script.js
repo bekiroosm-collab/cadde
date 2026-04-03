@@ -72,7 +72,7 @@ if (track && btnPrev && btnNext) {
   btnPrev.addEventListener("click", () => scrollLeftBy(-1));
   btnNext.addEventListener("click", () => scrollLeftBy(1));
 
-  // Oklar için durum güncelleme (baş/sonda pasif görünüm istersen class ekleyebilirsin)
+  // Oklar için durum güncelleme 
   const updateArrows = () => {
     const max = track.scrollWidth - track.clientWidth - 2; // tolerans
     const atStart = track.scrollLeft <= 2;
@@ -84,7 +84,7 @@ if (track && btnPrev && btnNext) {
   window.addEventListener("resize", updateArrows);
   updateArrows();
 
-  // Mouse sürükle / touch kaydırma
+  // SADECE MOUSE: Bilgisayarda sürükle / kaydırma için (Mobilde dokunmatik native kayar)
   let isDown = false, startX = 0, startScroll = 0;
   const onDown = (clientX) => {
     isDown = true;
@@ -105,10 +105,6 @@ if (track && btnPrev && btnNext) {
   track.addEventListener("mousedown", (e) => onDown(e.clientX));
   track.addEventListener("mousemove", (e) => onMove(e.clientX));
   document.addEventListener("mouseup", onUp);
-
-  track.addEventListener("touchstart", (e) => onDown(e.touches[0].clientX), { passive: true });
-  track.addEventListener("touchmove", (e) => onMove(e.touches[0].clientX), { passive: true });
-  track.addEventListener("touchend", onUp);
 
   // Klavye ile gezinme (odağa alınmışken sol/sağ)
   track.setAttribute("tabindex", "0");
@@ -150,21 +146,25 @@ window.addEventListener("load", () => {
   });
 });
 
-/* --- YENİ EKLENEN: ÜRÜN KATEGORİ FİLTRELEME SİSTEMİ --- */
+/* --- ÜRÜN KATEGORİ FİLTRELEME SİSTEMİ --- */
 const filterBtns = document.querySelectorAll('.cat-btn');
 const productCards = document.querySelectorAll('.product-track .card');
 const productTrack = document.getElementById("productTrack");
 
 if (filterBtns.length > 0 && productCards.length > 0) {
   filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Aktif buton stilini değiştir
-      document.querySelector('.cat-btn.active').classList.remove('active');
-      btn.classList.add('active');
+    btn.addEventListener('click', function(e) {
+      e.preventDefault(); // Varsayılan tıklama davranışını güvene al
 
-      const filterValue = btn.getAttribute('data-filter');
+      // 1. Önceki aktif butonun rengini sıfırla
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      
+      // 2. Tıklanan butonu aktif (renkli) yap
+      this.classList.add('active');
 
-      // Kartları gizle / göster
+      const filterValue = this.getAttribute('data-filter');
+
+      // 3. Kartları eşleştir ve filtrele
       productCards.forEach(card => {
         if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
           card.classList.remove('hidden');
@@ -173,7 +173,7 @@ if (filterBtns.length > 0 && productCards.length > 0) {
         }
       });
 
-      // Filtreleme sonrası kaydırmayı en başa al
+      // 4. Farklı kategoriye geçince kaydırma çubuğunu en başa al
       if (productTrack) {
         productTrack.scrollLeft = 0;
       }
