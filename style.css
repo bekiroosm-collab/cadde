@@ -407,13 +407,17 @@ img {
 }
 
 /* Kusursuz Kaydırma (Slider) Alanı */
+/* Kusursuz Kaydırma (Slider) Alanı */
 .product-track {
     display: flex;
     flex-wrap: nowrap;
-    gap: 24px; /* Kartlar arası boşluk arttırıldı */
+    gap: 24px;
     overflow-x: auto;
+    overflow-y: hidden; /* EKLENDİ: Kendi içindeki gizli dikey taşmaları keser */
+    touch-action: pan-y; /* ÇOK ÖNEMLİ: Parmak yukarı/aşağı yapıldığında sayfanın kilitlenmesini engeller */
+    overscroll-behavior-x: contain; /* EKLENDİ: Sağa/sola kaydırma bitince sayfanın esnemesini engeller */
     scroll-snap-type: x mandatory;
-    padding: 10px 10px 40px 10px; /* Gölgelerin kesilmemesi için bol padding */
+    padding: 10px 10px 40px 10px;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
 }
