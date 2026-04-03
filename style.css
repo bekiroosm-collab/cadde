@@ -310,28 +310,92 @@ img {
 }
 
 /* Premium Kategori Filtre Butonları */
+/* Kategoriler Mobilde Kusursuz 2x2 Izgara (Grid) Görünümü */
+    .modern-filters {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Tam eşit 2 sütun */
+        gap: 12px; /* Butonlar arası ferah boşluk */
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        overflow-x: visible;
+        margin-bottom: 24px;
+    }
+    
+    .modern-filters .cat-btn {
+        width: 100%;
+        padding: 12px 6px; /* Dokunma alanı genişletildi */
+        font-size: 14px;
+        border-radius: 12px; /* Tam yuvarlak yerine şık, modern köşe kıvrımı */
+        white-space: normal; /* Uzun kelimeler taşıp çirkin durmasın diye */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* Butonlara hafif 3D hissi ve derinlik */
+    }
+
+    /* Masaüstü: Premium Kategori Filtre Butonları */
 .modern-filters {
     display: flex;
-    gap: 12px;
-    margin-bottom: 30px;
-    overflow-x: auto;
-    padding-bottom: 8px;
-    scrollbar-width: none; /* Firefox */
+    justify-content: center; /* Masaüstünde butonları ortala */
+    flex-wrap: wrap; /* Ekrana sığmazsa alt satıra şıkça inmesini sağla */
+    gap: 16px;
+    margin-bottom: 32px;
 }
-.modern-filters::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
 
 .modern-filters .cat-btn {
-    padding: 10px 24px;
+    padding: 12px 28px; /* Dokunma alanını ferahlattık */
     border: none;
-    background: #f1f5f9;
+    background: #f8fafc; /* Daha soft, modern bir gri */
     color: #475569;
-    border-radius: 999px;
+    border-radius: 99px; /* Tam köşesiz, hap tasarımı */
     font-weight: 600;
     font-size: 15px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03); /* Hafif modern 3D gölge */
+    flex-shrink: 0;
 }
+
+.modern-filters .cat-btn:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+    transform: translateY(-2px); /* Üstüne gelince hafif yukarı kalkma efekti */
+}
+
+.modern-filters .cat-btn.active {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 6px 15px rgba(255, 84, 73, 0.35);
+    transform: translateY(-2px);
+}
+/* Mobilde Kategoriler 2x2 Izgara ve Köşesiz Hap Tasarımı */
+    .modern-filters {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Tam simetrik iki sütun */
+        gap: 12px;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        overflow-x: visible;
+        margin-bottom: 24px;
+    }
+    
+    .modern-filters .cat-btn {
+        width: 100%;
+        padding: 12px 6px;
+        font-size: 14px;
+        border-radius: 99px; /* Mobilde de köşesiz tasarım korundu */
+        white-space: nowrap; /* Mobilde yazılar yan yana kalsın */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        transform: none !important; /* Mobilde hover efekti takılma yapmasın diye kapalı */
+    }
 .modern-filters .cat-btn:hover {
     background: #e2e8f0;
     color: #1e293b;
@@ -718,4 +782,356 @@ img {
   .hero-title {
     font-size: 38px;
   }
+}
+
+/* =========================================================
+   FRANCHISE (BAYİLİK) BÖLÜMÜ ÖZEL TASARIMI
+   ========================================================= */
+
+.franchise {
+    background: var(--soft); /* Arka planı hafif gri/mavi yaparak ürünler bölümünden ayırdık */
+}
+
+.franchise-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Yarı yarıya (yazı - görsel) yerleşim */
+    gap: 48px;
+    align-items: center;
+    background: #fff;
+    padding: 48px;
+    border-radius: 32px; /* Yumuşak ve modern köşeler */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.06); /* Kaliteli derinlik hissi */
+    border: 1px solid var(--stroke);
+}
+
+.franchise-content .sec-title {
+    font-size: clamp(26px, 3vw, 36px);
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.franchise-content .sec-text {
+    margin-bottom: 32px;
+    font-size: 15px;
+}
+
+/* Onay Tikleri (Maddeler) */
+.franchise-benefits {
+    list-style: none;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.franchise-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.franchise-benefits li svg {
+    width: 26px;
+    height: 26px;
+    color: #fff;
+    background: var(--primary); /* İkon arka planı marka rengi */
+    padding: 6px;
+    border-radius: 50%; /* Tam yuvarlak ikonlar */
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(255, 84, 73, 0.3); /* İkona özel hafif parlama efekti */
+}
+
+/* Sağ Taraf Görsel Alanı */
+.franchise-image {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    height: 100%;
+    min-height: 400px;
+}
+
+.franchise-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.franchise-wrapper:hover .franchise-image img {
+    transform: scale(1.05); /* Üstüne gelince görsel çok hafif ve yavaşça büyür */
+}
+
+/* Görsel Üzerindeki Şık Rozet (Badge) */
+.franchise-badge {
+    position: absolute;
+    bottom: 30px;
+    left: -20px; /* Görselden hafifçe dışarı taşarak 3D hissi verir */
+    background: var(--ink); /* Siyah arka plan */
+    color: #fff;
+    padding: 16px 24px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    z-index: 2;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.franchise-badge .badge-num {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary); /* Marka rengi */
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.franchise-badge .badge-text {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+/* Mobil ve Tablet Uyumu */
+@media (max-width: 992px) {
+    .franchise-wrapper {
+        grid-template-columns: 1fr; /* Alt alta geçsin */
+        gap: 32px;
+        padding: 32px;
+    }
+    .franchise-image {
+        min-height: 300px;
+    }
+    .franchise-badge {
+        left: 20px; /* Mobilde dışarı taşmasını iptal edip içeri aldık */
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .franchise-wrapper {
+        padding: 24px;
+        border-radius: 24px;
+    }
+    .franchise-content .sec-title {
+        font-size: 24px;
+    }
+}
+
+/* =========================================================
+   FRANCHISE (BAYİLİK) BÖLÜMÜ - MODERN & MOBİL ÖNCELİKLİ
+   ========================================================= */
+
+.franchise {
+    background: var(--soft); /* Arka planı hafif gri yaparak ayırdık */
+}
+
+.franchise-wrapper {
+    display: flex;
+    flex-direction: column; /* MOBİL İÇİN: Önce alt alta dizelim */
+    background: #fff;
+    border-radius: 32px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+    border: 1px solid var(--stroke);
+    overflow: hidden; /* Kenar yuvarlaklığını içeride tutmak için */
+}
+
+/* Sağ Taraf Görsel Alanı (Mobilde Üstte) */
+.franchise-image {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Mobilde görselin yüksekliğini sınırladık */
+    overflow: hidden;
+    order: 1; /* Mobilde en üstte görünsün */
+}
+
+.franchise-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Görseli düzgünce sığdır */
+    transition: transform 0.6s ease;
+}
+
+/* Görsel Üzerindeki Şık Rozet (Badge) */
+.franchise-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 20px; /* Mobilde sağ alta şıkça yerleştirdik */
+    background: rgba(30, 41, 59, 0.95); /* Hafif şeffaf koyu arka plan */
+    backdrop-filter: blur(5px); /* Modern cam efekti */
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    z-index: 2;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.franchise-badge .badge-num {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary); /* Marka rengi */
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.franchise-badge .badge-text {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+/* Sol Taraf: İçerik (Mobilde Altta) */
+.franchise-content {
+    padding: 32px 24px; /* Mobilde kenar boşluklarını daralttık */
+    order: 2; /* Mobilde görselin altında görünsün */
+    text-align: center; /* Mobilde metni ortaladık */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* İçerikleri yatayda ortala */
+}
+
+.franchise-content .sec-title {
+    font-size: 24px; /* Mobilde başlığı küçülttük */
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.franchise-content .sec-text {
+    margin-bottom: 24px;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+/* Onay Tikleri (Maddeler) */
+.franchise-benefits {
+    list-style: none;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%; /* Tam genişlik */
+    align-items: flex-start; /* Tikleri sol hizalı yapalım ama maddeyi ortalayacağız */
+}
+
+.franchise-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    text-align: left; /* Yazı sol hizalı kalsın */
+    margin: 0 auto; /* Maddeyi ortada tut */
+    max-width: 90%; /* Çok uzamasını engelle */
+}
+
+.franchise-benefits li svg {
+    width: 22px;
+    height: 22px;
+    color: #fff;
+    background: var(--primary); /* İkon arka planı marka rengi */
+    padding: 5px;
+    border-radius: 50%; /* Tam yuvarlak ikonlar */
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(255, 84, 73, 0.2);
+}
+
+/* Butonun mobilde tam genişlik olması */
+.franchise-content .btn.primary {
+    width: 100%;
+    max-width: 320px; /* Çok uzamasını engelle */
+    justify-content: center;
+}
+
+/* =========================================================
+   MEDIA QUERY: MASAÜSTÜ İYİLEŞTİRMELERİ
+   (Masaüstünde eski güzel görüntüyü korumak için)
+   ========================================================= */
+@media (min-width: 993px) {
+    .franchise-wrapper {
+        flex-direction: row; /* Masaüstünde yan yana diz */
+        align-items: center;
+        padding: 0; /* İçerik padding'ini kaldırıp içeriye verdik */
+    }
+
+    /* Sağ Taraf Görsel Alanı (Masaüstünde Sağda) */
+    .franchise-image {
+        width: 50%;
+        height: 100%;
+        min-height: 500px;
+        order: 2; /* Görsel sağda */
+    }
+
+    .franchise-wrapper:hover .franchise-image img {
+        transform: scale(1.05); /* Üstüne gelince görsel çok hafif ve yavaşça büyür */
+    }
+
+    /* Görsel Üzerindeki Şık Rozet (Masaüstünde Daha Taşma Efektli) */
+    .franchise-badge {
+        bottom: 30px;
+        right: auto;
+        left: -30px; /* Görselden hafifçe dışarı taşarak 3D hissi verir */
+        padding: 16px 24px;
+        border-radius: 16px;
+    }
+
+    .franchise-badge .badge-num {
+        font-size: 28px;
+    }
+
+    .franchise-badge .badge-text {
+        font-size: 11px;
+    }
+
+    /* Sol Taraf: İçerik (Masaüstünde Solda) */
+    .franchise-content {
+        width: 50%;
+        padding: 60px; /* Masaüstünde ferah boşluklar */
+        order: 1; /* İçerik solda */
+        text-align: left; /* Masaüstünde metni sola hizala */
+        align-items: flex-start; /* İçerikleri sola hizala */
+    }
+
+    .franchise-content .sec-title {
+        font-size: 36px;
+        margin-bottom: 16px;
+    }
+
+    .franchise-content .sec-text {
+        font-size: 15px;
+    }
+
+    .franchise-benefits {
+        align-items: flex-start;
+    }
+
+    .franchise-benefits li {
+        margin: 0; /* Ortalamayı iptal et */
+        font-size: 15px;
+        max-width: 100%;
+    }
+
+    .franchise-benefits li svg {
+        width: 26px;
+        height: 26px;
+        padding: 6px;
+    }
+    
+    .franchise-content .btn.primary {
+        width: auto; /* Masaüstünde normal genişlik */
+    }
 }
