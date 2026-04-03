@@ -92,180 +92,129 @@
         </div>
     </section>
 
-    <!-- PRODUCTS -->
     <section id="products" class="products section">
         <div class="container">
-            <div class="sec-head">
+            <div class="sec-head modern-head">
                 <h2 class="sec-title">Ürünlerimiz & Fiyatlarımız</h2>
-                <div class="slider-controls">
-                    <button class="slider-btn prev">‹</button>
-                    <button class="slider-btn next">›</button>
+                <div class="slider-controls modern-controls">
+                    <button class="slider-btn prev">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <button class="slider-btn next">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
                 </div>
             </div>
 
+            <div class="category-filters modern-filters">
+                <button class="cat-btn active" data-filter="all">Tüm Menü</button>
+                <button class="cat-btn" data-filter="hamburger">Hamburgerler</button>
+                <button class="cat-btn" data-filter="hotdog">Hot Dog'lar</button>
+                <button class="cat-btn" data-filter="makarna">Makarnalar</button>
+            </div>
+
             <div class="product-track" id="productTrack">
-                <!-- Örnek Ürün Kartları -->
-                <article class="card" data-aos="fade-right" data-aos-delay="50">
-                    <img src="https://i.hizliresim.com/f9rl3jl.jpg" alt="New York Hot Dog" />
+                
+                <article class="card modern-card" data-category="hamburger">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/f9rl3jl.jpg" alt="Classic Burger" />
+                    </div>
                     <div class="card-body">
                         <h3>Classic Burger</h3>
                         <p>Karamelize soğan, marul, domates, turşu.</p>
-                        <div class="price">₺250</div>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺250</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺270</span>
+                            </div>
+                        </div>
                     </div>
                 </article>
-                <!-- Kart 2 -->
-                <article class="card" data-aos="fade-right" data-aos-delay="50">
-                    <img src="https://i.hizliresim.com/kxv8wfc.jpg" alt="New York Hot Dog" />
+
+                <article class="card modern-card" data-category="hamburger">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/kxv8wfc.jpg" alt="Cheese Burger" />
+                    </div>
                     <div class="card-body">
                         <h3>Cheese Burger</h3>
                         <p>Marul, domates, karamelize soğan, turşu, cheddar.</p>
-                        <div class="price">₺260</div>
-                    </div>
-                </article>
-                <!-- Kart 3 -->
-                <article class="card" data-aos="fade-right" data-aos-delay="100">
-                    <img src="https://i.hizliresim.com/p0hmois.jpg" alt="Smash Burger" />
-                    <div class="card-body">
-                        <h3>Mexican Burger</h3>
-                        <p>Marul, domates, turşu, jalapeno biber, sriracaha sos.</p>
-                        <div class="price">₺260</div>
-                    </div>
-                </article>
-                <!-- Kart 4 -->
-                <article class="card" data-aos="fade-right" data-aos-delay="150">
-                    <img src="https://i.hizliresim.com/ejq9wc9.jpg" alt="Chili Hot Dog" />
-                    <div class="card-body">
-                        <h3>Chicken Burger</h3>
-                        <p>Çıtır Tavuk, marul, domates, turşu, karamelize soğan.</p>
-                        <div class="price">₺190</div>
-                    </div>
-                </article>
-                <!-- Kart 5 -->
-                <article class="card" data-aos="fade-right" data-aos-delay="200">
-                    <img src="https://i.hizliresim.com/f9rl3jl.jpgg" alt="Patates & Sos" />
-                    <div class="card-body">
-                        <h3>BBQ Burger</h3>
-                        <p>Marul, domates, barbekü sos, karamelize soğan, cheddar.</p>
-                        <div class="price">₺260</div>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺260</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺280</span>
+                            </div>
+                        </div>
                     </div>
                 </article>
 
-                <article class="card" data-aos="fade-right" data-aos-delay="200">
-                    <img src="https://i.hizliresim.com/ax0cc7e.jpg" alt="Patates & Sos" />
-                    <div class="card-body">
-                        <h3>Double Burger</h3>
-                        <p>Çift köfte, Marul, domates, turşu, karamelize soğan.</p>
-                        <div class="price">₺320</div>
+                <article class="card modern-card" data-category="hotdog">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/giqqet9.jpg" alt="Classic Hot Dog" />
                     </div>
-                </article>
-
-                <article class="card" data-aos="fade-right" data-aos-delay="200">
-                    <img src="https://i.hizliresim.com/pi2bq5l.jpg" alt="Patates & Sos" />
-                    <div class="card-body">
-                        <h3>Chef Burger</h3>
-                        <p>Marul, domates, turşu, yumurta.</p>
-                        <div class="price">₺280</div>
-                    </div>
-                </article>
-
-                <article class="card" data-aos="fade-right" data-aos-delay="200">
-                    <img src="https://i.hizliresim.com/giqqet9.jpg" alt="Patates & Sos" />
                     <div class="card-body">
                         <h3>Classic Hot Dog</h3>
                         <p>Sosis, ketçap, hardal, turşu.</p>
-                        <div class="price">₺150</div>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺150</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺170</span>
+                            </div>
+                        </div>
                     </div>
                 </article>
 
-
-                <article class="card" data-aos="fade-right" data-aos-delay="200">
-                    <img src="https://i.hizliresim.com/giqqet9.jpg" alt="Patates & Sos" />
-                    <div class="card-body">
-                        <h3>Cadde Hot Dog</h3>
-                        <p>Sosis, soğan, turşu, soslar.</p>
-                        <div class="price">₺150</div>
+                <article class="card modern-card" data-category="hotdog">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/jl7lkr8.jpg" alt="Cheese Hot Dog" />
                     </div>
-                </article>
-
-                <article class="card" data-aos="fade-right" data-aos-delay="200">
-                    <img src="https://i.hizliresim.com/jl7lkr8.jpg" alt="Patates & Sos" />
                     <div class="card-body">
                         <h3>Cheese Hot Dog</h3>
                         <p>Sosis, cheddar, turşu, soslar.</p>
-                        <div class="price">₺160</div>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺160</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺180</span>
+                            </div>
+                        </div>
                     </div>
                 </article>
 
-                <article class="card" data-aos="fade-right" data-aos-delay="200">
-                    <img src="https://i.hizliresim.com/giqqet9.jpg" alt="Patates & Sos" />
+                <article class="card modern-card" data-category="makarna">
+                    <div class="card-img-wrapper">
+                        <img src="https://i.hizliresim.com/9pe0epd.jpg" alt="Penne Arrabbiata" />
+                    </div>
                     <div class="card-body">
-                        <h3>Nacho Hot Dog</h3>
-                        <p>Sosis, cips kırıkları, cheddar, soslar.</p>
-                        <div class="price">₺160</div>
+                        <h3>Penne Arrabbiata</h3>
+                        <p>Acı soslu, zeytinli taze penne makarna.</p>
+                        <div class="price-container">
+                            <div class="price-row">
+                                <span class="price-label">Dükkan</span>
+                                <span class="price-val">₺180</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Paket</span>
+                                <span class="price-val">₺200</span>
+                            </div>
+                        </div>
                     </div>
                 </article>
 
-                <article class="card" data-aos="fade-right" data-aos-delay="200">
-                    <img src="https://i.hizliresim.com/giqqet9.jpg" alt="Patates & Sos" />
-                    <div class="card-body">
-                        <h3>Breakfast Hot Dog</h3>
-                        <p>Sosis, yumurta, kaşar.</p>
-                        <div class="price">₺180</div>
-                    </div>
-                </article>
-
-                <article class="card" data-aos="fade-right" data-aos-delay="200">
-                    <img src="https://i.hizliresim.com/9pe0epd.jpg" alt="Patates & Sos" />
-                    <div class="card-body">
-                        <h3>BBQ Hot Dog</h3>
-                        <p>Sosis, barbekü, karamelize soğan, soslar.</p>
-                        <div class="price">₺150</div>
-                    </div>
-                </article>
-
-                <article class="card" data-aos="fade-right" data-aos-delay="200">
-                    <img src="https://i.hizliresim.com/giqqet9.jpg" alt="Patates & Sos" />
-                    <div class="card-body">
-                        <h3>Mexican Hot Dog</h3>
-                        <p>Sosis, jalapeno biber, sriracha sos, soslar.</p>
-                        <div class="price">₺150</div>
-                    </div>
-                </article>
-
-                <article class="card" data-aos="fade-right" data-aos-delay="200">
-                    <img src="https://i.hizliresim.com/9pe0epd.jpg" alt="Patates & Sos" />
-                    <div class="card-body">
-                        <h3>Russian Hot Dog</h3>
-                        <p>Sosis, rus salatası, turşu, soslar.</p>
-                        <div class="price">₺160</div>
-                    </div>
-                </article>
-
-                <!-- Diğer ürünler aynı formatta eklenecek -->
-            </div>
-
-            <p class="hint">Yana kaydırarak daha fazla ürün görebilirsiniz →</p>
-        </div>
-    </section>
-
-    <!-- FRANCHISE -->
-    <section id="franchise" class="franchise section">
-        <div class="container grid-2">
-            <div class="fr-text">
-                <h2 class="sec-title">Franchise / Bayilik</h2>
-                <p class="sec-text">
-                    Kârlı yatırım, kolay kurulum, hazır reçeteler ve güçlü marka desteği ile Cadde ailesine katılın.
-                </p>
-                <ul class="ticks">
-                    <li>Düşük giriş maliyeti</li>
-                    <li>Hazır menü tarifleri</li>
-                    <li>Sosyal medya kiti</li>
-                    <li>Açılış danışmanlığı</li>
-                </ul>
-                <a class="btn more" href="franchise.html">Daha Fazlası</a>
-            </div>
-            <div class="fr-media">
-                <img src="https://i.hizliresim.com/j6708wn.png" alt="Bayilik Fırsatı" class="owner-img" />
             </div>
         </div>
     </section>
